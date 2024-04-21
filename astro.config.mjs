@@ -4,7 +4,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ebbyl.github.io",
-  base: "ebb",
+  base: "site",
   integrations: [
     starlight({
       title: "EBBYL",
