@@ -1,0 +1,59 @@
+---
+title: Overview
+description: A high-level overview of the challenge
+---
+
+Welcome to my solution to the DevOps Technical Challenge!
+
+Let's quickly go over the instructions:
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. **Fork the [repository](https://github.com/ebbcarbon/devops_coding_challenge)
+   into your own Github repository.**
+
+   The fork containing my solution can be found at: https://github.com/ebbyl/app
+
+2. **Develop a very simple RESTful API**
+
+   > 🗣️ _The API should listen on a publicly accessible HTTP endpoint for
+   > GET calls at `api/resources` and returns the resources from
+   > `data/ebbcarbon.yaml`._
+
+   The API I created is hosted at: https://ebb.y4ni.com/
+
+   See [here](../../reference/example/) for instructions on how to test it!
+
+   <br />
+
+   > 🗣️ _Use whatever language and framework you like - be prepared to
+   > tell us why you chose what you did._
+
+   I used [Python] and [FastAPI]. See [Key Decisions] for more on why
+   I chose these as well as other design decisions.
+
+3. **Containerize this application**
+
+   I containerized the application using [Docker]. Read more about this
+   decision here.
+
+4. **Use Infrastructure as Code (IaC) to deploy this API onto AWS**
+
+   I used [Terraform] to manage the AWS infrastructure. Well, technically
+   speaking I used [OpenTofu] which is an Open Source fork of [Terraform].
+
+   I used [GitHub Actions] to manage the deployment pipeline. You can
+   read more about this here.
+
+5. **Create a PR and tag us when you're done**
+
+</Steps>
+
+[Python]: https://www.python.org/
+[FastAPI]: https://fastapi.tiangolo.com/
+[Docker]: https://www.docker.com/
+[Terraform]: https://www.terraform.io/
+[OpenTofu]: https://opentofu.org/
+[GitHub Actions]: https://docs.github.com/en/actions
