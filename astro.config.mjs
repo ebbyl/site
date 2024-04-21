@@ -16,22 +16,15 @@ export default defineConfig({
           label: "Overview",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Overview", link: "/overview/overview/" },
+            { label: "Overview", link: "/site/overview/overview/" },
           ],
         },
         {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", link: "/guides/example/" },
-          ],
+          label: "The API",
+          autogenerate: { directory: "api" },
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
-        },
-        {
-          label: "Key Decisions",
+          label: "Decisions",
           autogenerate: { directory: "decisions" },
         },
       ],
