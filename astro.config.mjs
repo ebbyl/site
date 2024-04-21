@@ -3,9 +3,11 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://ylathouris.github.io",
+  base: "ebb",
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "EBBYL",
       social: {
         github: "https://github.com/withastro/starlight",
       },
