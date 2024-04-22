@@ -3,7 +3,7 @@ title: Portability
 description: Portability overview
 ---
 
-import { Aside, Card } from "@astrojs/starlight/components";
+import { Aside, Card, LinkCard } from "@astrojs/starlight/components";
 
 <Card title="Portability" icon="star">
   An app that can run on any compute service
@@ -15,28 +15,87 @@ The application used to serve the API is a containerized [Python]
 application. For this example, I have chosen to host the workload in
 [AWS ECS].
 
-That said, I made a conscious effort to make the source code unaware
-of the compute infrastructure it is running on. It should be easy
-to deploy to other compute offerings such as [AWS Lambda],
-[AWS App Runner], [AWS EKS] or [AWS EC2].
-
-<Aside type="tip" title="Mangum">
-  By using the [Mangum] library, we can deploy Python applications on [AWS
-  Lambda].
-</Aside>
-
 Services like [AWS ECS] and [AWS EKS] are container orchestration tools.
 They are ideal for companies running Microservices architectures with
 lots of services. They are probably NOT the right choice for the
-current project.
+current project. I chose [AWS ECS] because it is probably the compute
+service I have the least amount of experience with. Hence, I saw this
+project as an opportunity to sharpen my skills.
 
-I chose [AWS ECS] because it is probably the compute service I have the
-least amount of experience with. Hence, I saw this project as an
-opportunity to sharpen my[AWS ECS] skills.
+This article from Nathan Peck is useful when choosing between AWS
+compute offerings.
 
+<LinkCard
+  title="AWS Compute"
+  description="Comparing AWS compute offerings."
+  href="https://nathanpeck.com/concurrency-compared-lambda-fargate-app-runner/"
+/>
+
+<br />
+
+#### Separation of Concerns
+
+I made a conscious effort to make the source code unaware of the
+compute infrastructure it is running on. It should be easy to deploy
+to other compute offerings such as [AWS Lambda],
+[AWS App Runner], [AWS EKS] or [AWS EC2].
+
+<Aside type="tip" title="Mangum">
+  The [Mangum] library makes it possible to deploy Python applications, such as
+  our [FastAPI] one, on [AWS Lambda].
+</Aside>
+
+---
+
+#### Containerization
+
+Using containerization helps make things portable too. Most compute
+offerings support containers. However, there are some downsides.
+
+We're getting pretty good at creating lightweight containers these
+days but a container still comes with more than just our application
+code. This means we need to scan our images for vulnerabilities and
+apply patches when available. This adds some operational burden.
+
+Also, when using [AWS Lambda], you may see performance improvements
+when using native archives (zip) instead of containers. However, this
+often depends on the runtime being used and the size of the archive.
+
+#### Encapsulation
+
+I have used reusable, self-service, modules to encapsulate most of
+the infrastructure details. For example:
+
+```terraform
+module "app" {
+  source = "git@github.com:ebbyl/tofu-app-ecs.git?ref=main"
+
+  name     = "app"
+  image    = local.image
+  port     = 8000
+  cpu      = 256
+  memory   = 512
+  replicas = 1
+
+  domain          = "app.y4ni.com"
+  certificate_arn = data.aws_acm_certificate.this.arn
+
+  tags = local.tags
+}
+```
+
+There is really only one line that references [AWS ECS]. My strategy
+here is to make it as easy as possible to replace [AWS ECS] with
+another compute offering such as [AWS Lambda], [AWS App Runner] or [AWS EKS].
+
+[Python]: https://www.python.org/
 [AWS Lambda]: https://aws.amazon.com/lambda/
 [AWS App Runner]: https://aws.amazon.com/apprunner/
 [AWS ECS]: https://aws.amazon.com/ecs/
 [AWS EKS]: https://aws.amazon.com/eks/
 [AWS EC2]: https://aws.amazon.com/ec2/
 [Mangum]: https://mangum.io/
+[Docker]: https://www.docker.com/
+[Terraform]: https://www.terraform.io/
+[OpenTofu]: https://opentofu.org/
+[FastAPI]: https://fastapi.tiangolo.com/
