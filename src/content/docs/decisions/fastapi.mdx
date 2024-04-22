@@ -1,0 +1,38 @@
+---
+title: FastAPI
+---
+
+import { Aside, Card } from "@astrojs/starlight/components";
+
+<Card title="FastAPI" icon="information">
+  I chose FastAPI as the web framework.
+</Card>
+
+---
+
+### Decision
+
+- [FastAPI] is becoming one of the most popular frameworks for
+  building web applications. Despite being a lot newer than [Django] or
+  [Flask], it is reasonably well battle-tested at this point.
+
+- [FastAPI] boasts Go-like performance. I'm not too sure about that.
+  However, it is fast enough for our requirements.
+
+- [FastAPI] Has excellent docs.
+
+- [FastAPI] is reasonably lightweight (compared to [Django] at least).
+
+- [FastAPI] comes with a built-in schema endpoint: https://app.y4ni.com/openapi.json
+
+### Consequences
+
+- [FastAPI] is not as lightweight as I would like. I considered using
+  [Starlette] which is the framework [FastAPI] is built on top of. However,
+  some of the features above were enough to sway me in this case.
+
+
+[Python]: https://www.python.org/
+[FastAPI]: https://fastapi.tiangolo.com/
+[Django]: https://www.djangoproject.com/
+[Flask]: https://flask.palletsprojects.com/en/3.0.x/

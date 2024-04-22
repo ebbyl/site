@@ -17,8 +17,6 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 
 1. #### Fork the base repository
 
-   > _Fork the [Base Repository] into your own GutHub Repository._
-
    You can checkout the fork I made using the link below.
 
    <LinkCard
@@ -29,14 +27,7 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 
    <br />
 
-2. #### Develop an API
-
-   > _Develop a very simple RESTful API that listens on a publicly
-   > accessible HTTP endpoint for `GET` calls at `api/resource` and
-   > returns the `resources` from `data/ebbcarbon.yaml`._
-   >
-   > _Use whatever language and framework you like - be prepared to
-   > tell us why you chose what you did._
+2. #### Develop a simple API
 
    I built the API using [Python] and [FastAPI]. Use the links below
    to explore the API and learn about some of the decisions made
@@ -44,49 +35,27 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 
    <LinkCard
      title="The API"
-     description="Go to overview of the API"
+     description="Go to API Overview"
      href="../../api/api/"
-   />
-
-   <LinkCard
-     title="Key Decisions"
-     description="Go to key decisions made during the project"
-     href="../../decisions/decisions/"
    />
 
    <br />
 
 3. #### Containerize the application
 
-   I containerized the application using [Docker]. Read more about this
-   decision below:
+   I containerized the application using [Docker].
 
-   <LinkCard
-     title="Key Decisions"
-     description="Go to key decisions made during the project"
-     href="../../decisions/decisions/"
-   />
+   I am storing [Docker] build artifacts in [AWS ECR].
+
+   I am using [AWS ECS] for container orchestration.
 
    <br />
 
 4. #### Use Infrastructure as Code (IaC)
 
-   > _Use the Infrastructure as Code (IaC) tool of your choice to
-   > deploy this API onto AWS. If you don't have an AWS account you
-   > can use free tier AWS resources for this test. Be prepared to
-   > tell us why you chose what you did._
+   I am using [Terraform]/[OpenTofu] to manage the AWS infrastructure.
 
-   I used [Terraform] to manage the AWS infrastructure.
-
-   I used [GitHub Actions] to manage the deployment pipeline.
-
-   Use the links below to learn more about both of these decisions.
-
-   <LinkCard
-     title="Key Decisions"
-     description="Go to key decisions made during the project"
-     href="../../decisions/decisions/"
-   />
+   I am using [GitHub Actions] to manage CI/CD workflows.
 
    <LinkCard
      title="CI/CD"
@@ -113,3 +82,5 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 [Terraform]: https://www.terraform.io/
 [OpenTofu]: https://opentofu.org/
 [GitHub Actions]: https://docs.github.com/en/actions
+[AWS ECR]: https://aws.amazon.com/ecr/
+[AWS ECS]: https://aws.amazon.com/ecs/

@@ -1,10 +1,30 @@
 ---
 title: DNS
 description: DNS Overview
+---
 
-prev:
-  link: ../api/
+import { Aside, Card } from "@astrojs/starlight/components";
 
-next:
-  link: ./auth
+<Card title="Custom Domain Name" icon="star">
+  A feature used to host the API under a custom domain name.
+</Card>
+
+---
+
+As previously stated, the API is hosted at: https://api.y4ni.com
+I own the top-level domain and decided to use it for this project.
+
+Using a custom domain name like this provides some benefits. Firstly,
+it is usually shorter and easier to remember than the AWS-generated
+DNS names for an API Gateway for Load Balancer component. However,
+more importantly, it provides an important interface layer between
+the client and the underlying infrastructure.
+
+For example, say we were to create a front-end application which
+called our API and presented the content nicely. Using the AWS-generated
+DNS names makes things a bit awkward. If we needed to change the underlying
+infrastructure, the DNS names may change with it. Using a custom DNS
+provides more stability and allows teams to evolve the architecture
+to meet business needs.
+
 ---

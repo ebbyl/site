@@ -14,18 +14,18 @@ export default defineConfig({
       sidebar: [
         {
           label: "Overview",
+          items: [{ label: "Overview", link: "/overview/overview/" }],
+        },
+        {
+          label: "API",
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Overview", link: "/overview/overview/" },
+            { label: "API Overview", link: "/api/api/" },
+            { label: "DNS", link: "/api/dns/" },
+            { label: "HTTPS", link: "/api/https/" },
+            { label: "Authentication", link: "/api/auth/" },
+            { label: "Usage Limits", link: "/api/usage/" },
+            { label: "Portability", link: "/api/portability/" },
           ],
-        },
-        {
-          label: "The API",
-          autogenerate: { directory: "api" },
-        },
-        {
-          label: "Decisions",
-          autogenerate: { directory: "decisions" },
         },
       ],
     }),
