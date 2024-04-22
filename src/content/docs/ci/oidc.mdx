@@ -1,0 +1,28 @@
+---
+title: OIDC
+description: OIDC
+---
+
+import { Aside, Card } from "@astrojs/starlight/components";
+
+<Card title="OIDC" icon="star">
+  OpenID Connect for secure access between GitHub and AWS
+</Card>
+
+---
+
+I am using OIDC to allow access between GitHub and AWS. This prevents
+the need to use AWS Access Keys which are long-lived credentials which  
+are often forgotten about and rarely rotated.
+
+With OIDC, our GitHub workflows can authenticate with AWS using the
+[AWS Login Action]. No AWS Access Keys required.
+
+Also see: [GitHub Security Hardening]
+
+---
+
+[AWS Login Actiob]: https://github.com/aws-actions/configure-aws-credentials
+[GitHub Security Hardening]: https://opentofu.org/
+
+[

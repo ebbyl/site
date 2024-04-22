@@ -27,6 +27,15 @@ export default defineConfig({
             { label: "Portability", link: "/api/portability/" },
           ],
         },
+        {
+          label: "CI/CD",
+          items: [
+            { label: "Overview", link: "/ci/overview/" },
+            { label: "Modularity", link: "/ci/modules/" },
+            { label: "Open Source", link: "/ci/oss/" },
+            { label: "OIDC", link: "/ci/oidc/" },
+          ],
+        },
       ],
     }),
   ],

@@ -1,0 +1,26 @@
+---
+title: Modularity
+description: Modularity
+---
+
+import { Aside, Card } from "@astrojs/starlight/components";
+
+<Card title="Modularity" icon="star">
+  Reusable, self-service, CI/CD and infrastructure components
+</Card>
+
+---
+
+I am using [GitHub Actions] to implement the CI/CD workflows. I made
+this decision partly because I know Ebb already use it. However, I also
+like it and I have some experience using it.
+
+The approach I have had success with in the past is to build
+components that encapsulate the operations involved in delivering
+software. This helps with standardization and DRY-ness but that's not
+the primary goal - the important thing is that it improves both the
+speed and quality of development.
+
+---
+
+[GitHub Actions]: https://docs.github.com/en/actions

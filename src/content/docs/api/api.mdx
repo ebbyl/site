@@ -3,48 +3,38 @@ title: API
 description: Overview of the API
 ---
 
-This page contains a high-level overview of the API I created for this
-project.
+import { Card, CardGrid, LinkCard, Steps } from "@astrojs/starlight/components";
 
-Let's take a very high-level look at the overall design:
-
-![Architecture](../../../assets/arch.png)
+<Card title="API">The API is available at: https://app.y4ni.com</Card>
 
 ---
 
-import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
+## Features
 
-<Steps>
+<CardGrid>
+  <LinkCard
+    title="DNS"
+    description="Hosting the API using a custom domain"
+    href="../../api/dns/"
+  />
+  <LinkCard title="HTTPS" description="HTTPS vs HTTP" href="../../api/https/" />
+  <LinkCard
+    title="Authentication"
+    description="Basic authentication using API keys"
+    href="../../api/auth/"
+  />
+  <LinkCard
+    title="Usage Limits"
+    description="Daily request quotas and rate limiting"
+    href="../../api/usage/"
+  />
+  <LinkCard
+    title="Portability"
+    description="Run on any compute service"
+    href="../../api/portability/"
+  />
+</CardGrid>
 
-1. #### DNS
+<br />
 
-   The API is hosted at: https://api.y4ni.com
-
-   The role of the DNS component is to resolve the DNS name above so
-   we can route traffic to the API server.
-
-   For this project, I used [AWS Route53] to implement the
-   DNS component.
-
-   <br />
-
-2. #### API Gateway
-
-   Once the DNS name has been resolved, the traffic is routed to the
-   API Gateway component. This performs several important functions:
-
-   <LinkCard
-     title="Authentication"
-     description="Go to authentication page"
-     href="../../decisions/decisions/"
-   />
-
-   <LinkCard
-     title="Usage Restrictions"
-     description="Go to an overview of usage restrictions"
-     href="../../decisions/decisions/"
-   />
-
-   <br />
-
-</Steps>
+---

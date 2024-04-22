@@ -47,7 +47,15 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 
    I am storing [Docker] build artifacts in [AWS ECR].
 
-   I am using [AWS ECS] for container orchestration.
+   I am using [AWS ECS] for container orchestration. However, I made
+   a conscious effort to make the code portable. Use the link below 
+   to learn more:
+
+   <LinkCard
+     title="Portability"
+     description="Learn more about the portability of the app"
+     href="../../api/portability/"
+   />
 
    <br />
 
@@ -70,7 +78,7 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
    <LinkCard
      title="Code Review"
      description="Go to pull request in GitHub"
-     href="../../cicd/cicd/"
+     href="https://github.com/ebbcarbon/devops_coding_challenge/pull/4"
    />
 
 </Steps>
@@ -83,4 +91,8 @@ import { Aside, Card, LinkCard, Steps } from "@astrojs/starlight/components";
 [OpenTofu]: https://opentofu.org/
 [GitHub Actions]: https://docs.github.com/en/actions
 [AWS ECR]: https://aws.amazon.com/ecr/
+[AWS Lambda]: https://aws.amazon.com/lambda/
+[AWS App Runner]: https://aws.amazon.com/apprunner/
 [AWS ECS]: https://aws.amazon.com/ecs/
+[AWS EKS]: https://aws.amazon.com/eks/
+[AWS EC2]: https://aws.amazon.com/ec2/
