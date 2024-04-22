@@ -16,7 +16,7 @@ export default defineConfig({
           label: "Overview",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Overview", link: "/site/overview/overview/" },
+            { label: "Overview", link: "/overview/overview/" },
           ],
         },
         {

@@ -1,0 +1,43 @@
+---
+title: Usage
+description: Overview of the API usage restrictions
+
+prev:
+  link: ../auth/
+---
+
+import { Aside, Card } from "@astrojs/starlight/components";
+
+<Card title="Usage Limits" icon="star">
+  A feature used to limit API usage.
+</Card>
+
+---
+
+The API includes a basic usage plan associated with each API Key. This
+is used to limit how a particular audience uses the API.
+
+A feature like this can be used to cap usage for different customers
+as well as protecting the system from being overloaded. It can also be
+used to control cloud costs. In my case, I don't wan't my demo API to
+support millions of request per second. Instead, I want to prevent
+scaling multiple instances of the API based on lots of concurrent
+requests as well as defining a daily quota.
+
+---
+
+### Quotas & Limits
+
+The API is currently limited to 500 requests per day. It is also
+has a concurrency limit of 1.
+
+Exceeding either of the limitations above will result in [429 Too Many Requests]
+response:
+
+```json
+{
+  "message": "Too Many Requests"
+}
+```
+
+[429 Too Many Requests]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429

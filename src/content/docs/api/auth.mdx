@@ -1,0 +1,87 @@
+---
+title: Authentication
+description: API Authentication Overview
+
+prev:
+  link: ../dns/
+
+next:
+  link: ../usage/
+  label: Usage Limits
+---
+
+import { Aside, Card } from "@astrojs/starlight/components";
+
+<Card title="Authentication" icon="star">
+  A security feature which prevents unauthenticated API requests.
+</Card>
+
+---
+
+The API includes basic authentication using API Keys. This helps
+protect the API by limiting its use to the intended target
+audience (you).
+
+By using AWS API Gateway to authenticate requests, we have chosen
+to authenticate at the edge or perimeter of our system. This has
+some trade-offs.
+
+Firstly, any requests that do not go via the API Gateway will not
+be authenticated. For example, say we built another service which
+needed to call our API. It probably wouldn't make sense to route
+those requests through the API Gateway. However, we may still want
+to authenticate them. In this case, our API Gateway solution may
+not be sufficient.
+
+On the other hand, performing basic authentication at the perimeter
+helps prevent unwanted load on our API servers. If we'd decided to
+perform authentication inside our Python application, unauthenticated
+requests would travel through our load balancers and into our compute.
+This kind of thing could generate lots of additional noise and costs.
+
+Finally, by decoupling the authentication process from our application,
+we have made it very easy to reuse across applications written in
+other languages and/or running on different types of compute.
+
+---
+
+## Calling the API
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+<Tabs>
+  <TabItem label="API Key" icon="approve-check-circle">
+    An API Key is required for all routes. It is passed as a header:
+
+    ```bash
+    curl -H 'x-api-key: <SECRET_KEY>' https://app.y4ni.com/health
+    ```
+
+    Will return something like:
+
+    ```json
+    {
+      "status": "Healthy",
+      "version": "demo",
+      "uptime": "381.1738233566284"
+    }
+    ```
+
+  </TabItem>
+  <TabItem label="No API Key" icon="warning">
+    Requests made without an API Key, such as:
+
+    ```bash
+    curl https://app.y4ni.com/health
+    ```
+
+    Will return the following:
+
+    ```json
+    {
+      "message": "Forbidden"
+    }
+    ```
+
+  </TabItem>
+</Tabs>
